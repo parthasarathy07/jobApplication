@@ -20,8 +20,13 @@ public class JobServiceImpl implements JobService {
     }
 
     @Override
-    public void createJob(Job job) {
-        jobRepository.save(job);
+    public Boolean createJob(Job job) {
+        try {
+            jobRepository.save(job);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
     }
 
     @Override
